@@ -8,9 +8,14 @@ Generate the most accurate models on an industrial scale data set that could cha
 
 ### Models used for submission
 My final submission for the Kaggle competition was an ensemble of two LightGBM models with DART boosting,
-an artificial neural network (ANN) and a XGBoost model. 
+an artificial neural network (ANN) and an XGBoost model. 
 The weights of the ensemble between these models were determined by highest possible evaluation metric (specific competition metric) based on the out of fold predictions (OOF). 
 The models in the ensemble were created based on three data sets (V23, V29 and V32), see the table below.
+
+I spend great amount of time on generating and testing new features, with some features more impactful than others.
+For instance, the difference between the last values and the second last values, as wel as the difference between the last values and the mean were found to have a great positive effect on the evaluation score.
+The effect of these features was first described in a notebook by Martin Kovacevic Buvinic on Kaggle.com.
+
 The data preparation for data version 32 is the same as for version 29,
 the only difference is that in V32 the NaN values are initially filled in with -127. After feature engineering and data processing the -127 values are ultimately replaced by NaN again.
 Whereas data preparation for data version 23 consists of fewer features. 
